@@ -6,4 +6,4 @@
 [Migration Guide](https://webpack.js.org/migrate/5/)
 
 Сборка:
-https://dearkadriya.github.io/dom1/
+https://dearkadriya.github.io/events1/
