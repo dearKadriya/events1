@@ -1,0 +1,44 @@
+body {
+    margin:0;
+    padding:0;
+}
+.scoreBoard {
+    background-color: bisque;
+    text-align: center;
+    font-size: large;
+
+
+}
+.game-over {
+    text-align: center;
+    font-size: large;
+}
+.button {
+    margin-left: 49%;
+}
+.container {
+    overflow:hidden;
+    width:430px;
+    position: absolute;
+    margin: 0 auto;
+    left: 600px;
+    top: 100px;
+
+}
+.box {
+    width:100px;
+    height:100px;
+    float:left;
+    background-color: burlywood;
+    margin-bottom:10px;
+}
+
+.spacing {
+    margin-right:10px;
+}
+.goblin {
+    width: 100px;
+    height: 100px;
+
+}
+
