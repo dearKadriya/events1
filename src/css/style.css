@@ -9,6 +9,13 @@ body {
 
 
 }
+.game-over {
+    text-align: center;
+    font-size: large;
+}
+.button {
+    margin-left: 49%;
+}
 .container {
     overflow:hidden;
     width:430px;

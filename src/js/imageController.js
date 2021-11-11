@@ -1,4 +1,6 @@
 import goblinImage from "../img/goblin.png";
+import {BoardController} from "./BoardController";
+import {interval} from "./app";
 export {addImage, removeImage, addHover}
 
 function addImage(datasetId, counter) {
@@ -18,6 +20,8 @@ function addImage(datasetId, counter) {
         return imgEl
     }
 function removeImage(counter) {
+        const elemInDom = document.querySelector('.goblin')
+        elemInDom.remove()
         if (counter.bite === false) {
                 counter.addStrikes(1)
                 let playerStrikes = document.querySelector("[data-id=strikes]")
@@ -25,16 +29,15 @@ function removeImage(counter) {
         }
         counter.bite = false
         if (counter.strike === 5) {
-                alert('Игра окончена')
                 counter.resetStrikes()
                 counter.resetPoints()
                 let playerScore = document.querySelector("[data-id=strikes]")
                 playerScore.textContent = `Очки: ${counter.count}`
                 let playerStrikes = document.querySelector("[data-id=score]")
                 playerStrikes.textContent = `Страйки: ${counter.strike} `
+                return 'game over'
         }
-        const elemInDom = document.querySelector('.goblin')
-        elemInDom.remove()
+
     }
 function addHover(imgEl) {
         imgEl.addEventListener('mouseover', () => {
@@ -45,4 +48,5 @@ function addHover(imgEl) {
 
         })
 }
+
 

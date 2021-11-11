@@ -12,4 +12,4 @@ class App {
 
 const nApp = new App()
 nApp.boardController.getBoardCells()
-nApp.boardController.startInterval()
+// nApp.boardController.startInterval()

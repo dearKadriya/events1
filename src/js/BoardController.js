@@ -4,6 +4,8 @@ import {ScoresCounter} from "./ScoresCounter";
 export class BoardController {
     constructor() {
         this.counter = new ScoresCounter()
+        this.startInterval()
+
     }
 
      getBoardCells() {
@@ -27,9 +29,41 @@ export class BoardController {
         addHover(imgEl)
     }
     startInterval() {
-        setInterval(() => {
-            removeImage(this.counter)
+        this.interval = setInterval(() => {
+            this.checkGameState()
             this.getBoardCells()
         }, 1000)
+        return this.interval
     }
+    stopInterval() {
+        clearInterval(this.interval)
+    }
+    endGame () {
+        let container = document.body.querySelector('.container');
+        let mess = document.createElement('div');
+        mess.textContent = 'Игра окончена'
+        mess.classList.add('game-over')
+        let button = document.createElement('button')
+        button.textContent = 'OK';
+        button.classList.add('game-over')
+        button.classList.add('button')
+        container.insertAdjacentElement('beforebegin', mess)
+        container.insertAdjacentElement('beforebegin', button)
+        button.addEventListener('click', () => {
+                this.startInterval()
+            mess.remove()
+            button.remove()
+            })
+    }
+
+    checkGameState() {
+        let gameOverState = removeImage(this.counter)
+        if (gameOverState === 'game over') {
+            this.stopInterval()
+            this.endGame()
+        }
+    }
+
+
+
 }
